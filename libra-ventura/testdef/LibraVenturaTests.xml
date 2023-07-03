@@ -19,8 +19,11 @@ under the License.
 -->
 
 <test-suite suite-name="LibraVenturatests"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="https://ofbiz.apache.org/dtds/test-suite.xsd">
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="https://ofbiz.apache.org/dtds/test-suite.xsd">
 
-
+    <test-case case-name="trail-import-test">
+        <groovy-test-suite name="trail-import-test"
+                           location="component://libra-ventura/src/testtools/groovy/fr/libraventura/trail/TrailImportTest.groovy"/>
+    </test-case>
 </test-suite>
