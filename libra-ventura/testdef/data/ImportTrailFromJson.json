@@ -1,0 +1,45 @@
+{
+  "name": "The grand trail",
+  "description": "This will be the greatest trail of your life",
+  "accessibility": "1",
+  "enigma_difficulty": "1",
+  "walking_difficulty": "1",
+  "starting_point": {
+    "latitude": 1,
+    "longitude": 2
+  },
+  "parking_address": {
+    "coordinates": {
+      "latitude": 1,
+      "longitude": 2
+    },
+    "address": {
+      "address1": "2003 Open Blvd",
+      "city": "Open City",
+      "postalCode": "999999",
+      "countryGeoId": "FRA",
+      "stateProvinceGeoId": ""
+    }
+  },
+  "enigma": {
+    "question": "",
+    "answer": ""
+  },
+  "points": [
+    {
+      "latitude": 1,
+      "longitude": 2,
+      "text": ""
+    },
+    {
+      "latitude": 1,
+      "longitude": 2,
+      "text": ""
+    },
+    {
+      "latitude": 1,
+      "longitude": 2,
+      "text": ""
+    }
+  ]
+}

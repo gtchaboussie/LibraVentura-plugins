@@ -20,7 +20,7 @@ class LibraVenturaMocker extends Assert {
         delegator = ds.getDelegator()
         GenericValue localUserSystem = null
         try {
-            localUserSystem = delegator.findOne("UserLogin", true, "userLoginId", "system")
+            localUserSystem = delegator.findOne('UserLogin', true, 'userLoginId', 'system')
         } catch (GenericEntityException ignored) {
         }
         userSystem = localUserSystem
@@ -37,7 +37,7 @@ class LibraVenturaMocker extends Assert {
         dispatcher = ds
         GenericValue localUserSystem = null
         try {
-            localUserSystem = delegator.findOne("UserLogin", true, "userLoginId", "system")
+            localUserSystem = delegator.findOne('UserLogin', true, 'userLoginId', 'system')
         } catch (GenericEntityException e) {
             Debug.logError(e, module)
             assert false
@@ -51,5 +51,42 @@ class LibraVenturaMocker extends Assert {
                 dispatcher: dispatcher]
     }
 
+    void safeCreate(String entityName, Object... fields) {
+        try {
+            delegator.createOrStore(delegator.makeValue(entityName, fields));
+        } catch (GenericEntityException e) {
+            Debug.logError(e, module);
+            fail('Error in safeCreate: ' + e.getMessage());
+        }
+    }
+
+    /**
+     * Inits WorkEffortTypes, and geoTypes
+     *     <WorkEffortType description='Fixed Asset Usage (rental)' hasTable='N' workEffortTypeId='ASSET_USAGE'/>
+
+     */
+    void initTrailStaticData() {
+        safeCreate('WorkEffortType',
+                'workEffortType', 'TRAIL_TEMPLATE',
+                'hasTable', 'N',
+                'description', 'Parent of work effort templates associated with trail',
+        )
+
+        safeCreate('WorkEffortType',
+                'workEffortType', 'TRAIL_TEMPLATE_HEADER',
+                'hasTable', 'N',
+                'description', 'Trail template header',
+                'parentTypeId', 'TRAIL_TEMPLATE'
+        )
+
+        safeCreate('WorkEffortType',
+                'workEffortType', 'TRAIL_TEMPLATE_STEP',
+                'hasTable', 'N',
+                'description', 'Step of a trail template',
+                'parentTypeId', 'TRAIL_TEMPLATE_HEADER'
+        )
+
+        // Geo Point type ?
+    }
 
 }

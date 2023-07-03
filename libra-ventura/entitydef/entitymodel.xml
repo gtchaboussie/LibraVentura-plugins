@@ -19,13 +19,26 @@ under the License.
 -->
 
 <entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="https://ofbiz.apache.org/dtds/entitymodel.xsd">
+             xsi:noNamespaceSchemaLocation="https://ofbiz.apache.org/dtds/entitymodel.xsd">
     <!-- ========================================================= -->
     <!-- ======================== Defaults ======================= -->
     <!-- ========================================================= -->
     <title>Entity of LibraVentura Component</title>
     <description>None</description>
-    <copyright></copyright>
-    <version></version>
+
+    <entity entity-name="WorkEffortGeoPoint" package-name="org.apache.ofbiz.common.geo"
+            default-resource-name="CommonEntityLabels"
+            title="Work effort geographic point">
+        <field name="workEffortId" type="id"/>
+        <field name="geoPointId" type="id"/>
+        <prim-key field="workEffortId"/>
+        <prim-key field="geoPointId"/>
+        <relation type="one" fk-name="GPTWE_WE" rel-entity-name="WorkEffort">
+            <key-map field-name="workEffortId"/>
+        </relation>
+        <relation type="one" fk-name="GPTWE_GPT" rel-entity-name="GeoPoint">
+            <key-map field-name="geoPointId"/>
+        </relation>
+    </entity>
 
 </entitymodel>
