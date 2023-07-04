@@ -19,15 +19,18 @@ under the License.
 -->
 
 <services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="https://ofbiz.apache.org/dtds/services.xsd">
+          xsi:noNamespaceSchemaLocation="https://ofbiz.apache.org/dtds/services.xsd">
     <description>LibraVentura Services</description>
     <vendor></vendor>
     <version>1.0</version>
 
-    <service name="noSyntaxError" engine="interface">
-        <description>
-            Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
-        </description>
-    </service> 
-    
+    <service name="libraCreateTrailTemplateFromImport" engine="groovy" auth="true"
+             location="component://libra-ventura/groovyScripts/fr/libraventura/trail/TrailServices.groovy"
+             invoke="libraCreateTrailTemplateFromImport">
+        <description>Imports a trail from imported file</description>
+        <attribute name="trailData" type="Map" mode="IN"/>
+        <attribute name="userLogin" type="GenericValue" mode="IN"/>
+        <attribute name="workEffortId" type="String" mode="OUT"/>
+    </service>
+
 </services>

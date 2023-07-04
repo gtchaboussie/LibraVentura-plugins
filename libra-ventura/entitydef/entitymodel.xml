@@ -31,14 +31,29 @@ under the License.
             title="Work effort geographic point">
         <field name="workEffortId" type="id"/>
         <field name="geoPointId" type="id"/>
+
         <prim-key field="workEffortId"/>
-        <prim-key field="geoPointId"/>
+        <prim-key field="geoPurposeTypeId"/>
+        <prim-key field="workEffortId"/>
         <relation type="one" fk-name="GPTWE_WE" rel-entity-name="WorkEffort">
             <key-map field-name="workEffortId"/>
         </relation>
         <relation type="one" fk-name="GPTWE_GPT" rel-entity-name="GeoPoint">
             <key-map field-name="geoPointId"/>
         </relation>
+        <relation type="one" fk-name="GPTWE_PRP" rel-entity-name="GeoPurposeType">
+            <key-map field-name="geoPurposeTypeId"/>
+        </relation>
     </entity>
 
+    <entity entity-name="GeoPurposeType"
+            package-name="org.apache.ofbiz.common.geo"
+            default-resource-name="CommonEntityLabels"
+            title="Geo Purpose Type">
+        <field name="geoPurposeTypeId" type="id"/>
+        <field name="parentTypeId" type="id"/>
+        <field name="hasTable" type="indicator"/>
+        <field name="description" type="description"/>
+        <prim-key field="geoPurposeTypeId"/>
+    </entity>
 </entitymodel>

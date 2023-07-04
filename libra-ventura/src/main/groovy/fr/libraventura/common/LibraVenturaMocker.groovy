@@ -7,6 +7,8 @@ import org.apache.ofbiz.entity.GenericValue
 import org.apache.ofbiz.service.LocalDispatcher
 import org.junit.Assert
 
+import static fr.libraventura.trail.TrailHelper.*
+
 class LibraVenturaMocker extends Assert {
 
     public static final String module = LibraVenturaMocker.class.getName()
@@ -51,42 +53,28 @@ class LibraVenturaMocker extends Assert {
                 dispatcher: dispatcher]
     }
 
-    void safeCreate(String entityName, Object... fields) {
+    static void safeCreate(String entityName, Object... fields) {
         try {
             delegator.createOrStore(delegator.makeValue(entityName, fields));
         } catch (GenericEntityException e) {
-            Debug.logError(e, module);
-            fail('Error in safeCreate: ' + e.getMessage());
+            Debug.logError(e, module)
+            fail('Error in safeCreate: ' + e.getMessage())
         }
     }
 
-    /**
-     * Inits WorkEffortTypes, and geoTypes
-     *     <WorkEffortType description='Fixed Asset Usage (rental)' hasTable='N' workEffortTypeId='ASSET_USAGE'/>
-
-     */
-    void initTrailStaticData() {
-        safeCreate('WorkEffortType',
-                'workEffortType', 'TRAIL_TEMPLATE',
-                'hasTable', 'N',
-                'description', 'Parent of work effort templates associated with trail',
-        )
-
-        safeCreate('WorkEffortType',
-                'workEffortType', 'TRAIL_TEMPLATE_HEADER',
-                'hasTable', 'N',
-                'description', 'Trail template header',
-                'parentTypeId', 'TRAIL_TEMPLATE'
-        )
-
-        safeCreate('WorkEffortType',
-                'workEffortType', 'TRAIL_TEMPLATE_STEP',
-                'hasTable', 'N',
-                'description', 'Step of a trail template',
-                'parentTypeId', 'TRAIL_TEMPLATE_HEADER'
-        )
-
-        // Geo Point type ?
+    static void initTrailStaticData() {
+        safeCreate('WorkEffortType', 'workEffortType', TRAIL_TEMPLATE_WE_TYPE, 'hasTable', 'N',
+                'description', 'Parent of work effort templates associated with trail',)
+        safeCreate('WorkEffortType', 'workEffortType', TRAIL_TEMPLATE_HEADER_WE_TYPE, 'hasTable', 'N',
+                'description', 'Trail template header', 'parentTypeId', TRAIL_TEMPLATE_WE_TYPE)
+        safeCreate('WorkEffortType', 'workEffortType', TRAIL_TEMPLATE_STEP_WE_TYPE, 'hasTable', 'N',
+                'description', 'Step of a trail template', 'parentTypeId', TRAIL_TEMPLATE_HEADER_WE_TYPE)
+        safeCreate('GeoPurposeType', 'geoPurposeTypeId', TRAIL_HEAD_START_GEO_POINT_TYPE, 'hasTable', 'N',
+                'description', 'Starting point of a trail')
+        safeCreate('GeoPurposeType', 'geoPurposeTypeId', TRAIL_HEAD_PARKING_GEO_POINT_TYPE, 'hasTable', 'N',
+                'description', 'Parking point of a trail')
+        safeCreate('GeoPurposeType', 'geoPurposeTypeId', TRAIL_STEP_GEO_POINT_TYPE, 'hasTable', 'N',
+                'description', 'Geo point of a trail step')
     }
 
 }
