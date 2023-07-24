@@ -33,4 +33,18 @@ under the License.
         <attribute name="workEffortId" type="String" mode="OUT"/>
     </service>
 
+    <service name="createWorkEffortGeoPoint" engine="entity-auto" default-entity-name="WorkEffortGeoPoint"
+             invoke="create" auth="true">
+        <description>Create a Enumeration</description>
+        <permission-service service-name="commonGenericPermission" main-action="CREATE"/>
+        <auto-attributes include="pk" mode="INOUT"/>
+    </service>
+
+    <service name="deleteWorkEffortGeoPoint" engine="entity-auto" default-entity-name="WorkEffortGeoPoint"
+             invoke="delete" auth="true">
+        <description>Delete a WorkEffortGeoPoint</description>
+        <permission-service service-name="commonGenericPermission" main-action="CREATE"/>
+        <auto-attributes include="pk" mode="INOUT"/>
+    </service>
+
 </services>

@@ -19,14 +19,17 @@ class TrailImportTest extends LibraVenturaTestCase {
     }
 
     void testImportTrailFromJson() {
-        mock.initTrailStaticData()
+        String partyId = 'SOME_USER', name = 'JHON', lastName = 'DOE', userLoginId = 'jhondoe@test.org'
 
+        mock.initTrailStaticData()
         String testName = this.name.replaceAll('test', '')
         String testFileLocation = System.getProperty('ofbiz.home') + '/plugins/libra-ventura/testdef/data/' + testName + '.json'
         JsonSlurper jsonSlurper = new JsonSlurper()
         Map trailData = jsonSlurper.parseText(new File(testFileLocation).text) as Map
+        GenericValue user = mock.createLibraVenturaUser(partyId, name, lastName, userLoginId)
 
         Map importResult = dispatcher.runSync('libraCreateTrailTemplateFromImport', [
+                userLogin  : user,
                 *          : mock.defaultServiceContextMap,
                 'trailData': trailData]
         )

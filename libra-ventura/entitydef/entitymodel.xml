@@ -31,10 +31,10 @@ under the License.
             title="Work effort geographic point">
         <field name="workEffortId" type="id"/>
         <field name="geoPointId" type="id"/>
-
+        <field name="geoPurposeTypeId" type="id"/>
         <prim-key field="workEffortId"/>
         <prim-key field="geoPurposeTypeId"/>
-        <prim-key field="workEffortId"/>
+        <prim-key field="geoPointId"/>
         <relation type="one" fk-name="GPTWE_WE" rel-entity-name="WorkEffort">
             <key-map field-name="workEffortId"/>
         </relation>
