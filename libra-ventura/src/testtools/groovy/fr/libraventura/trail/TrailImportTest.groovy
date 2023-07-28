@@ -18,6 +18,10 @@ class TrailImportTest extends LibraVenturaTestCase {
         super(name)
     }
 
+    EntityQuery query() {
+        return EntityQuery.use(delegator)
+    }
+
     void testImportTrailFromJson() {
         String partyId = 'SOME_USER', name = 'JHON', lastName = 'DOE', userLoginId = 'jhondoe@test.org'
 
@@ -34,13 +38,31 @@ class TrailImportTest extends LibraVenturaTestCase {
                 'trailData': trailData]
         )
         assert isSuccess(importResult)
+        String headerId = importResult.workEffortId
+        GenericValue templateHeader = query().from('WorkEffort')
+                .where('workEffortId', headerId)
+                .queryOne()
 
-        List<GenericValue> trailTemplateHeader = EntityQuery.use(delegator).from("WorkEffort")
-                .where('workEffortTypeId', TRAIL_TEMPLATE_HEADER_WE_TYPE)
+        assert 'No header found after import', templateHeader
+        // assert parking point and address
+        List<GenericValue> workEffParkingPoints = query().from('WorkEffortGeoPoint')
+                .where('workEffortId', headerId, 'geoPurposeTypeId', TRAIL_HEAD_PARKING_GEO_POINT_TYPE)
                 .queryList()
-        assert trailTemplateHeader.size() == 1
-        GenericValue trail = trailTemplateHeader[0]
-        assert trail.workEffortId == importResult.workEffortId
+        assert workEffParkingPoints.size() == 1
+
+        GenericValue workEffortParkingPoint = workEffParkingPoints[0]
+        List<GenericValue> parkingPointsGeo = query().from('GeoPoint')
+                .where('geoPointId', workEffortParkingPoint.geoPointId)
+                .queryList()
+        assert parkingPointsGeo.size() == 1
+
+        GenericValue parkingGeo = parkingPointsGeo[0]
+        assert parkingGeo.latitude
+        assert parkingGeo.longitude
+
+        // assert sportive and enigma difficulty
+
+        // assert points
 
     }
 

@@ -4,10 +4,6 @@
   "accessibility": "1",
   "enigma_difficulty": "1",
   "sportive_difficulty": "1",
-  "starting_point": {
-    "latitude": 1,
-    "longitude": 2
-  },
   "parking": {
     "coordinates": {
       "latitude": 47.40204,

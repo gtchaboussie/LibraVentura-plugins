@@ -14,7 +14,5 @@ class TrailHelper {
     public static final String TRAIL_HEAD_PARKING_GEO_POINT_TYPE = 'TRAIL_HEAD_PARK_PT'
     public static final String TRAIL_STEP_GEO_POINT_TYPE = 'STEP_GEO_POINT'
 
-    public static final String TRAIL_ADDRESS_PKG_PURPOSE = 'PARKING_ADDRESS'
-
     public static final String TRAIL_USER_IMPORT_SOURCE = 'USER_IMPORT'
 }

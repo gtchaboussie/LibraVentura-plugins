@@ -125,7 +125,6 @@ class LibraVenturaMocker extends Assert {
                 'description', 'Geo point of a trail step')
 
         safeCreate('DataSource', 'dataSourceId', TRAIL_USER_IMPORT_SOURCE, 'dataSourceTypeId', 'LEAD_SOURCE', 'description', 'User file import source')
-        safeCreate("ContactMechPurposeType", "contactMechPurposeTypeId", TRAIL_ADDRESS_PKG_PURPOSE)
     }
 
     /**

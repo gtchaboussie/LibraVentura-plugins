@@ -32,13 +32,6 @@ Map libraCreateTrailTemplateFromImport() {
             stateProvinceGeoId: parkinAddress.stateProvinceGeoId
     ]
 
-    // TODO add parking purpose (mail to send to commu)
-    run service: 'createWorkEffortContactMech', with: [
-            contactMechId: parkingResult.contactMechId,
-            workEffortId : mainWEId,
-//            contactMechPurposeTypeId: TrailHelper.TRAIL_ADDRESS_PKG_PURPOSE
-    ]
-
     Map parkingPoint = parking.coordinates as Map
     Map parkingGeoResult = run service: 'createGeoPoint', with: [
             dataSourceId: TrailHelper.TRAIL_USER_IMPORT_SOURCE,
