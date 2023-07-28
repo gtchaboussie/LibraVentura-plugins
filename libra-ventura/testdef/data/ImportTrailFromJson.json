@@ -3,18 +3,19 @@
   "description": "This will be the greatest trail of your life",
   "accessibility": "1",
   "enigma_difficulty": "1",
-  "walking_difficulty": "1",
+  "sportive_difficulty": "1",
   "starting_point": {
     "latitude": 1,
     "longitude": 2
   },
-  "parking_address": {
+  "parking": {
     "coordinates": {
-      "latitude": 1,
-      "longitude": 2
+      "latitude": 47.40204,
+      "longitude": 0.71117
     },
     "address": {
       "address1": "2003 Open Blvd",
+      "address2": "Build 666",
       "city": "Open City",
       "postalCode": "999999",
       "countryGeoId": "FRA",
@@ -27,19 +28,29 @@
   },
   "points": [
     {
-      "latitude": 1,
-      "longitude": 2,
-      "text": ""
+      "latitude": 47.40242,
+      "longitude": 0.70954,
+      "text": "Minim phasellus aperiri scelerisque verear fames fabulas mauris congue legimus. Graeco signiferumque dissentiunt delicata tempus ignota lectus fusce sociis scelerisque. Novum natoque antiopam est postulant iriure. Facilisis saepe graecis velit sadipscing. Expetenda doctus ex signiferumque adolescens nobis detraxit velit."
     },
     {
-      "latitude": 1,
-      "longitude": 2,
-      "text": ""
+      "latitude": 47.40236,
+      "longitude": 0.70608,
+      "text": "Corrumpit repudiandae epicurei quisque euripidis evertitur consectetur. Sanctus ei reque aenean iusto labores scripserit semper. Porttitor diam taciti eloquentiam eloquentiam unum eruditi quaeque adolescens postea. Ubique periculis platonem libero docendi. Sapien nunc porro ocurreret harum consequat ac solum."
     },
     {
-      "latitude": 1,
-      "longitude": 2,
-      "text": ""
+      "latitude": 47.40155,
+      "longitude": 0.70586,
+      "text": "Once you’ve accepted your flaws, no one can use them against you.You're a wizard, Harry."
+    },
+    {
+      "latitude": 47.40066,
+      "longitude": 0.70845,
+      "text": "Euismod facilisis amet melius saperet prompta. Platea urna feugiat gubergren quas facilis malorum. Voluptatibus tempor latine constituto disputationi vivamus eu platonem affert lectus. Persecuti nonumes ocurreret metus auctor facilisis. Minim disputationi viderer mnesarchum te iudicabit omittantur idque vestibulum."
+    },
+    {
+      "latitude": 47.4013,
+      "longitude": 0.71211,
+      "text": "Solet conubia nullam docendi conceptam taciti dicam reformidans hac. Similique ocurreret delenit feugiat appareat nisi senserit magna non. Melius tincidunt eripuit vulputate splendide persecuti debet. Ferri blandit sociosqu constituto lobortis constituto. Platonem vituperata iaculis graecis no civibus elementum tantas vivamus."
     }
   ]
 }

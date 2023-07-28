@@ -32,6 +32,8 @@ under the License.
         <field name="workEffortId" type="id"/>
         <field name="geoPointId" type="id"/>
         <field name="geoPurposeTypeId" type="id"/>
+        <field name="fromDate" type="date-time"/>
+        <field name="thruDate" type="date-time"/>
         <prim-key field="workEffortId"/>
         <prim-key field="geoPurposeTypeId"/>
         <prim-key field="geoPointId"/>
@@ -56,4 +58,28 @@ under the License.
         <field name="description" type="description"/>
         <prim-key field="geoPurposeTypeId"/>
     </entity>
+
+<!--    <entity entity-name="WorkEffortContactMechPurpose"-->
+<!--            package-name="org.apache.ofbiz"-->
+<!--            default-resource-name="CommonEntityLabels"-->
+<!--            title="Work effort contactMech pupose">-->
+<!--        <field name="workEffortId" type="id"/>-->
+<!--        <field name="contactMechId" type="id"/>-->
+<!--        <field name="contactMechPurposeTypeId" type="id"/>-->
+<!--        <field name="fromDate" type="date-time"/>-->
+<!--        <field name="thruDate" type="date-time"/>-->
+<!--        <prim-key field="workEffortId"/>-->
+<!--        <prim-key field="contactMechId"/>-->
+<!--        <prim-key field="contactMechPurposeTypeId"/>-->
+<!--        <relation type="one" fk-name="WECMP_WE" rel-entity-name="WorkEffort">-->
+<!--            <key-map field-name="workEffortId"/>-->
+<!--        </relation>-->
+<!--        <relation type="one" fk-name="WECMP_CM" rel-entity-name="ContactMech">-->
+<!--            <key-map field-name="contactMechId"/>-->
+<!--        </relation>-->
+<!--        <relation type="one" fk-name="WECMP_CMPU" rel-entity-name="ContactMechPurposeType">-->
+<!--            <key-map field-name="contactMechPurposeTypeId"/>-->
+<!--        </relation>-->
+<!--    </entity>-->
+
 </entitymodel>

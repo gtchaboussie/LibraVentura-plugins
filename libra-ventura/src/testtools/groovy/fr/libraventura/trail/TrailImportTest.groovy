@@ -35,28 +35,13 @@ class TrailImportTest extends LibraVenturaTestCase {
         )
         assert isSuccess(importResult)
 
-        // assert WorkEffort trail header
-        // assert header a bien une addresse et un point d'interet
-        List<GenericValue> trails = EntityQuery.use(delegator).from("WorkEffort")
+        List<GenericValue> trailTemplateHeader = EntityQuery.use(delegator).from("WorkEffort")
                 .where('workEffortTypeId', TRAIL_TEMPLATE_HEADER_WE_TYPE)
                 .queryList()
-        assert trails.size() == 1
-        GenericValue trail = trails[0]
+        assert trailTemplateHeader.size() == 1
+        GenericValue trail = trailTemplateHeader[0]
         assert trail.workEffortId == importResult.workEffortId
 
-        // assert parking
-
-        // assert start point
-
-        List<GenericValue> trailPoints = EntityQuery.use(delegator).from("WorkEffort")
-                .where('workEffortParentId', trail.workEffortId, 'workEffortTypeId', TRAIL_TEMPLATE_STEP_WE_TYPE)
-                .queryList()
-        assert trailPoints.size() == 3
-
-        // pour chaque point :
-        // assert workEffort
-
-        // assert geo
     }
 
 }

@@ -90,7 +90,8 @@ class LibraVenturaMocker extends Assert {
                 'CONTENTMGR_ADMIN',
                 'CONTENTMGR_ROLE_ADMIN',
                 'PARTYMGR_CME_ADMIN',
-                'WORKEFFORTMGR_ADMIN'
+                'WORKEFFORTMGR_ADMIN',
+                'COMMON_ADMIN'
         ]
         List<String> libraVenturaSpecific = [
                 LIBRA_VENTURA_ADMIN_SECURITY_GROUP
@@ -112,12 +113,19 @@ class LibraVenturaMocker extends Assert {
                 'description', 'Trail template header', 'parentTypeId', TRAIL_TEMPLATE_WE_TYPE)
         safeCreate('WorkEffortType', 'workEffortTypeId', TRAIL_TEMPLATE_STEP_WE_TYPE, 'hasTable', 'N',
                 'description', 'Step of a trail template', 'parentTypeId', TRAIL_TEMPLATE_HEADER_WE_TYPE)
+        for (def i = 0; i <= 30; i++) {
+            safeCreate('WorkEffortType', 'workEffortTypeId', TRAIL_TEMPLATE_STEP_WE_TYPE + '_' + i, 'hasTable', 'N',
+                    'description', 'Step of a trail template', 'parentTypeId', TRAIL_TEMPLATE_STEP_WE_TYPE)
+        }
         safeCreate('GeoPurposeType', 'geoPurposeTypeId', TRAIL_HEAD_START_GEO_POINT_TYPE, 'hasTable', 'N',
                 'description', 'Starting point of a trail')
         safeCreate('GeoPurposeType', 'geoPurposeTypeId', TRAIL_HEAD_PARKING_GEO_POINT_TYPE, 'hasTable', 'N',
                 'description', 'Parking point of a trail')
         safeCreate('GeoPurposeType', 'geoPurposeTypeId', TRAIL_STEP_GEO_POINT_TYPE, 'hasTable', 'N',
                 'description', 'Geo point of a trail step')
+
+        safeCreate('DataSource', 'dataSourceId', TRAIL_USER_IMPORT_SOURCE, 'dataSourceTypeId', 'LEAD_SOURCE', 'description', 'User file import source')
+        safeCreate("ContactMechPurposeType", "contactMechPurposeTypeId", TRAIL_ADDRESS_PKG_PURPOSE)
     }
 
     /**

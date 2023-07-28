@@ -35,16 +35,35 @@ under the License.
 
     <service name="createWorkEffortGeoPoint" engine="entity-auto" default-entity-name="WorkEffortGeoPoint"
              invoke="create" auth="true">
-        <description>Create a Enumeration</description>
-        <permission-service service-name="commonGenericPermission" main-action="CREATE"/>
+        <description>Create a WorkEffortGeoPoint</description>
+        <permission-service service-name="workEffortGenericPermission" main-action="CREATE"/>
+        <auto-attributes include="pk" mode="INOUT"/>
+    </service>
+
+    <service name="createWorkEffortGeoPoint" engine="entity-auto" default-entity-name="WorkEffortGeoPoint"
+             invoke="create" auth="true">
+        <description>Update a WorkEffortGeoPoint</description>
+        <permission-service service-name="workEffortGenericPermission" main-action="UPDATE"/>
         <auto-attributes include="pk" mode="INOUT"/>
     </service>
 
     <service name="deleteWorkEffortGeoPoint" engine="entity-auto" default-entity-name="WorkEffortGeoPoint"
              invoke="delete" auth="true">
         <description>Delete a WorkEffortGeoPoint</description>
-        <permission-service service-name="commonGenericPermission" main-action="CREATE"/>
+        <permission-service service-name="workEffortGenericPermission" main-action="DELETE"/>
         <auto-attributes include="pk" mode="INOUT"/>
     </service>
 
+<!--    <service name="createWorkEffortContactMechPurpose" engine="entity-auto"-->
+<!--             default-entity-name="WorkEffortContactMechPurpose"-->
+<!--             invoke="create" auth="true">-->
+<!--        <permission-service service-name="workEffortGenericPermission" main-action="CREATE"/>-->
+<!--        <auto-attributes include="pk" mode="INOUT"/>-->
+<!--    </service>-->
+<!--    <service name="deleteWorkEffortContactMechPurpose" engine="entity-auto"-->
+<!--             default-entity-name="WorkEffortContactMechPurpose"-->
+<!--             invoke="delete" auth="true">-->
+<!--        <permission-service service-name="workEffortGenericPermission" main-action="CREATE"/>-->
+<!--        <auto-attributes include="pk" mode="INOUT"/>-->
+<!--    </service>-->
 </services>
